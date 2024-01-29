@@ -14,7 +14,20 @@ public class User {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && name.equals(user.name) && email.equals(user.email);
+    }
     public User(){
+    }
+    public User(String name, String email, Department department){
+
+        this.name = name;
+        this.email = email;
+        this.department = department;
     }
 
     public long getId() {

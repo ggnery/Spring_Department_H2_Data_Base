@@ -2,6 +2,8 @@ package com.project.userdept.entities;
 
 import jakarta.persistence.*;
 
+import java.io.StringReader;
+
 @Entity
 @Table(name = "tb_department")
 public class Department {
@@ -11,6 +13,11 @@ public class Department {
     private String name;
 
     public Department(){
+    }
+
+    public Department(long id, String name){
+        this.id = id;
+        this.name = name;
     }
 
     public long getId() {
